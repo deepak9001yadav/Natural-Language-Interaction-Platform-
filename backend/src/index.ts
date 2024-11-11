@@ -1,14 +1,12 @@
 import app from "./app.js";
-import { connectToDatabase} from "./db/connection.js";
+import { connectToDatabase } from "./db/connection.js";
 
- 
-// connections and Listeneres
+// connections and listeners
+const PORT = process.env.PORT || 5000;
 connectToDatabase()
-.then(() => {
-    app.listen(5000, ()=>
-        console.log("Server open & connect to Database ")
-);
-})
-.catch((err) => console.log(err));
-
-
+  .then(() => {
+    app.listen(PORT, () => 
+      console.log("Server open & connected to Database")
+    ); // <-- Corrected closing parentheses
+  })
+  .catch((err) => console.log(err));
